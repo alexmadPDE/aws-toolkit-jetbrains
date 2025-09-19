@@ -25,7 +25,6 @@ import software.aws.toolkits.jetbrains.services.amazonq.lsp.model.aws.chat.Curso
 import software.aws.toolkits.jetbrains.services.amazonq.lsp.model.aws.chat.CursorState
 import java.io.File
 import java.net.URI
-import java.net.URISyntaxException
 
 object LspEditorUtil {
 
@@ -45,26 +44,10 @@ object LspEditorUtil {
     }
 
     private fun toUri(file: File): URI {
-        try {
-            // URI scheme specified by language server protocol
-            val uri = URI("file", "", file.absoluteFile.toURI().path, null)
-            val fallback = file.toPath().toAbsolutePath().normalize().toUri()
-            return if (uri.isCompliant()) uri else fallback
-        } catch (e: URISyntaxException) {
-            LOG.warn { "${e.localizedMessage}: $e" }
-            return file.absoluteFile.toURI()
-        }
+        return file.toPath().toAbsolutePath().normalize().toUri()
     }
 
-    private fun URI.isCompliant(): Boolean {
-        if (!"file".equals(this.scheme, ignoreCase = true)) return true
 
-        val path = this.rawPath ?: this.path.orEmpty()
-        val noAuthority = this.authority.isNullOrEmpty()
-
-        // If the authority component is empty, the path cannot begin with two slash characters ("//")
-        return !(noAuthority && path.startsWith("//"))
-    }
 
     /**
      * Works but is divergent from [FocusAreaContextExtrator]
