@@ -6,10 +6,22 @@ documentation, we greatly value feedback and contributions from our community.
 Please read through this document before submitting any issues or pull requests to ensure we have all the necessary 
 information to effectively respond to your bug report or contribution.
 
+## Quick Start for External Contributors
+
+If you're working from a fork of this repository and want to contribute back to the main project:
+
+1. **Main Repository**: https://github.com/aws/aws-toolkit-jetbrains (this is where you submit issues and pull requests)
+2. **Your Fork**: https://github.com/YOUR_USERNAME/aws-toolkit-jetbrains (this is where you make your changes)
+3. **Contribution Flow**: Make changes in your fork → Create pull request to main repository → Wait for review
+
+📝 **Important**: Always create pull requests from your fork to the main repository at https://github.com/aws/aws-toolkit-jetbrains, not within your own fork.
+
 
 ## Reporting Bugs/Feature Requests
 
 We welcome you to use the GitHub issue tracker to report bugs or suggest features.
+
+**📍 Report issues at**: https://github.com/aws/aws-toolkit-jetbrains/issues (the main repository, not your fork)
 
 When filing an issue, please check [existing open](https://github.com/aws/aws-toolkit-jetbrains/issues), or [recently closed](https://github.com/aws/aws-toolkit-jetbrains/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aclosed%20), issues to make sure somebody else hasn't already 
 reported the issue. Please try to include as much information as you can. Details like these are incredibly useful:
@@ -54,24 +66,35 @@ Contributions via pull requests are much appreciated. Before sending us a pull r
 
 To send us a pull request, please:
 
-1. Fork the repository
-2. Modify the source; please focus on the specific change you are contributing. *(note: all changes must have associated automated tests)*
-3. Ensure local tests pass by running:
+1. **Fork the repository** from https://github.com/aws/aws-toolkit-jetbrains to your own GitHub account
+2. **Clone your fork** locally and create a new branch for your changes:
+   ```
+   git clone https://github.com/YOUR_USERNAME/aws-toolkit-jetbrains.git
+   cd aws-toolkit-jetbrains
+   git checkout -b your-feature-branch
+   ```
+3. **Modify the source**; please focus on the specific change you are contributing. *(note: all changes must have associated automated tests)*
+4. **Ensure local tests pass** by running:
    ```
    ./gradlew check
    ```
 
-4. Generate a change log entry for your change if the change is visible to users of the toolkit in their IDE.
+5. **Generate a change log entry** for your change if the change is visible to users of the toolkit in their IDE:
    ```
    ./gradlew :newChange --console plain
    ```
 
    and following the prompts. Change log entries should describe the change
    succinctly and may include Git-Flavored Markdown ([GFM](https://github.github.com/gfm/)). Reference the Github Issue # if relevant.
-5. Commit to your fork using clear commit messages. Again, reference the Issue # if relevant.
-6. Send us a pull request by completing the pull-request template.
-7. Pay attention to any automated build failures reported in the pull request.
-8. Stay involved in the conversation.
+6. **Commit to your fork** using clear commit messages. Again, reference the Issue # if relevant:
+   ```
+   git add .
+   git commit -m "Your descriptive commit message"
+   git push origin your-feature-branch
+   ```
+7. **Create a pull request** from your fork's branch to the main repository's `main` branch at https://github.com/aws/aws-toolkit-jetbrains by completing the pull-request template.
+8. **Pay attention to any automated build failures** reported in the pull request.
+9. **Stay involved in the conversation** and address any feedback from reviewers.
 
 GitHub provides additional documentation on [forking a repository](https://help.github.com/articles/fork-a-repo/) and 
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
@@ -178,7 +201,7 @@ If the tests run too quickly, you can tell the UI tests to wait for the debugger
 
 ## Finding contributions to work on
 
-Looking at the existing issues is a great way to find something to contribute on. Any of the [help wanted](https://github.com/aws/aws-toolkit-jetbrains/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) issues is a great place to start.
+Looking at the existing issues is a great way to find something to contribute on. Check the main repository for any of the [help wanted](https://github.com/aws/aws-toolkit-jetbrains/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) issues - these are a great place to start.
 
 ## Additional References
 
